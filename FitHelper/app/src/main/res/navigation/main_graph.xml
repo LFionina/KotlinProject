@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/workoutsFragment">
+
+    <fragment
+        android:id="@+id/workoutsFragment"
+        android:name="com.example.fithelper.screens.mainActivity.workouts.workouts.WorkoutsFragment"
+        android:label="fragment_workout"
+        tools:layout="@layout/fragment_workout" >
+        <action
+            android:id="@+id/action_workoutsFragment_to_changeWorkoutFragment"
+            app:destination="@id/changeWorkoutFragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_workoutsFragment_to_createWorkoutFragment"
+            app:destination="@id/createWorkoutFragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_workoutsFragment_to_confirmationDialogFragment"
+            app:destination="@id/confirmationDialogFragment"
+            app:launchSingleTop="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.fithelper.screens.mainActivity.profile.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/createWorkoutFragment"
+        android:name="com.example.fithelper.screens.mainActivity.workouts.createWorkout.CreateWorkoutFragment"
+        android:label="fragment_creating_of_workout"
+        tools:layout="@layout/fragment_creating_of_workout" >
+        <action
+            android:id="@+id/action_createWorkoutFragment_to_workoutsFragment"
+            app:destination="@id/workoutsFragment" />
+        <action
+            android:id="@+id/action_createWorkoutFragment_to_createExerciseDialogFragment"
+            app:destination="@id/createExerciseDialogFragment" />
+        <action
+            android:id="@+id/action_createWorkoutFragment_to_datePickerDialogFragment"
+            app:destination="@id/datePickerDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeWorkoutFragment"
+        android:name="com.example.fithelper.screens.mainActivity.workouts.changeWorkout.ChangeWorkoutFragment"
+        android:label="fragment_changing_of_workout"
+        tools:layout="@layout/fragment_changing_of_workout" >
+        <action
+            android:id="@+id/action_changeWorkoutFragment_to_workoutsFragment"
+            app:destination="@id/workoutsFragment" />
+        <argument
+            android:name="WorkoutForChange"
+            app:argType="com.example.fithelper.models.Workout" />
+    </fragment>
+    <dialog
+        android:id="@+id/createExerciseDialogFragment"
+        android:name="com.example.fithelper.screens.common.createExerciseDialogFragment.CreateExerciseDialogFragment"
+        android:label="CreateExerciseDialogFragment" >
+        <argument
+            android:name="listener"
+            app:argType="com.example.fithelper.screens.common.createExerciseDialogFragment.CreateExerciseDialogFragment$OnExerciseCreatedListener" />
+        <action
+            android:id="@+id/action_createExerciseDialogFragment_to_createWorkoutFragment"
+            app:destination="@id/createWorkoutFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/confirmationDialogFragment"
+        android:name="com.example.fithelper.screens.common.confirmationDialogFragment.ConfirmationDialogFragment"
+        android:label="ConfirmationDialogFragment" >
+        <action
+            android:id="@+id/action_confirmationDialogFragment_to_workoutsFragment"
+            app:destination="@id/workoutsFragment" />
+        <argument
+            android:name="message"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="listener"
+            app:argType="com.example.fithelper.screens.common.confirmationDialogFragment.ConfirmationDialogFragment$OnConfirmationListener"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </dialog>
+    <dialog
+        android:id="@+id/datePickerDialogFragment"
+        android:name="com.example.fithelper.screens.common.datePickerDialogFragment.DatePickerDialogFragment"
+        android:label="DatePickerDialogFragment" >
+        <argument
+            android:name="year"
+            app:argType="integer" />
+        <argument android:name="monthOfYear"
+            app:argType="integer" />
+        <argument
+            android:name="dayOfMonth"
+            app:argType="integer" />
+        <argument
+            android:name="listener"
+            app:argType="com.example.fithelper.screens.common.datePickerDialogFragment.DatePickerDialogFragment$OnDateSetListener"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_datePickerDialogFragment_to_createWorkoutFragment"
+            app:destination="@id/createWorkoutFragment" />
+    </dialog>
+
+</navigation>

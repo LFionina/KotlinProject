@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/Theme.FitHelper">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/exerciseNameET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:hint="@string/exercise_name"
+            android:inputType="text"
+            android:textColor="?android:attr/textColorPrimary"
+            tools:ignore="TouchTargetSizeCheck"
+            android:importantForAutofill="no" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/setsTV"
+                style="@style/BottomSheetTextViewStyle"
+                android:text="@string/count_approaches" />
+
+            <Button
+                android:id="@+id/decreaseSetsButton"
+                style="@style/ChangeButtonsStyle"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:text="@string/minus"
+                tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+            <Button
+                android:id="@+id/increaseSetsButton"
+                style="@style/ChangeButtonsStyle"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:text="@string/plus"
+                tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/repsTV"
+                style="@style/BottomSheetTextViewStyle"
+                android:text="@string/count_repeats" />
+
+            <Button
+                android:id="@+id/fastDecreaseRepsButton"
+                style="@style/ChangeButtonsStyle"
+                android:text="@string/minus_minus"
+                tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+            <Button
+                android:id="@+id/decreaseRepsButton"
+                style="@style/ChangeButtonsStyle"
+                android:text="@string/minus"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <Button
+                android:id="@+id/increaseRepsButton"
+                style="@style/ChangeButtonsStyle"
+                android:text="@string/plus"
+                tools:ignore="TouchTargetSizeCheck"
+                android:background="@drawable/button_background"/>
+
+            <Button
+                android:id="@+id/fastIncreaseRepsButton"
+                style="@style/ChangeButtonsStyle"
+                android:text="@string/plus_plus"
+                tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/weightTV"
+                style="@style/BottomSheetTextViewStyle"
+                android:text="@string/weight" />
+
+            <SeekBar
+                android:id="@+id/weightSeekBar"
+                android:layout_width="204dp"
+                android:layout_height="match_parent"
+                android:theme="@style/SeekBarStyle"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/completeAddExerciseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:text="@string/add_exercise"
+            style="@style/AppButtonStyle" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
